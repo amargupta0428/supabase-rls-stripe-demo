@@ -6,6 +6,8 @@ dotenv.config({ path: ".env.local" });
 
 const PORT = 3000;
 const baseURL = process.env.NEXT_PUBLIC_SITE_URL ?? `http://localhost:${PORT}`;
+// When pointed at a deployed URL, don't spin up the local dev server.
+const isLocal = baseURL.includes("localhost");
 
 export default defineConfig({
   testDir: "./tests",
@@ -25,12 +27,14 @@ export default defineConfig({
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
   ],
-  webServer: {
-    command: "npm run dev",
-    url: baseURL,
-    reuseExistingServer: true,
-    timeout: 120_000,
-    stdout: "pipe",
-    stderr: "pipe",
-  },
+  webServer: isLocal
+    ? {
+        command: "npm run dev",
+        url: baseURL,
+        reuseExistingServer: true,
+        timeout: 120_000,
+        stdout: "pipe",
+        stderr: "pipe",
+      }
+    : undefined,
 });
