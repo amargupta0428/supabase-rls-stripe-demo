@@ -1,5 +1,7 @@
 # BizListings — RLS-Gated Subscription Demo
 
+[![checks](https://github.com/amargupta0428/supabase-rls-stripe-demo/actions/workflows/checks.yml/badge.svg)](https://github.com/amargupta0428/supabase-rls-stripe-demo/actions/workflows/checks.yml)
+
 > **This is a DEMO**, built to prove one specific capability: **content access
 > gated by an active paid subscription, enforced at the Postgres database level
 > via Supabase Row Level Security (RLS)** — not merely hidden in the frontend or
