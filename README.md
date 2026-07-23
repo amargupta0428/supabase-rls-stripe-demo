@@ -200,3 +200,5 @@ supabase/
   seed.sql                       # ~20 sample businesses-for-sale
 tests/                           # Playwright suite
 ```
+
+*AI involvement: this project was built with heavy use of Claude (Anthropic) for code and analysis; all results were verified by the author.*
